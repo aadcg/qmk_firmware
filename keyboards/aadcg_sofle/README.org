@@ -1,0 +1,7 @@
+#+TITLE: Sofle Keyboard
+
+[[https://josefadamcik.github.io/SofleKeyboard/][Sofle]] is 6×4+5 keys column-staggered split keyboard.
+
+$ qmk flash
+
+Flash each half and make sure that the TRRS cable is disconnected.
