@@ -1,0 +1,80 @@
+#+TITLE: Sofle Keyboard
+
+[[https://josefadamcik.github.io/SofleKeyboard/][Sofle]] is 6×4+5 keys column-staggered split keyboard.
+
+Flash each half.  Relies on [[https://github.com/sigprof/guix-qmk][guix-qmk]]:
+
+#+begin_src shell
+# clean may be omitted
+guix shell -m /path/to/guix-qmk/manifest.scm -- make -C /path/to/qmk_firmware/ clean aadcg_sofle:default:flash
+#+end_src
+
+* COMMENT Dump
+** Thinking about the US keyboard layout.
+
+The Sofle keyboard has 58 keys (29+29).
+
+The keyboard must provide a mechanism to insert the letters of the
+english alphabet (26) in both lower and upper case.  And the digits
+of the decimal number system (10).
+
+Besides there's RET, SPC (2).
+
+There are some (randomly chosen) symbols namely the following 32:
+` ~ * & ^ % ! @ # $ + = - _ ' " [ ] { } ( ) < > ; : . , ? / \ |
+
+There are also non-printing characters.  Some of these are modifiers
+keys.  Let change the meaning of the pressed key.  Their names doesn't
+really matter, but these include Control, Meta/Alt, Shift, Super, Hyper,
+etc.  And also TAB, ESC, Backspace, Delete.
+
+There's also the concept of a layer.
+
+A single keyboard key k can have the following behaviours:
+- itself
+- C-k
+- M-k
+- C-M-k
+- Layer[n]-k
+- Hold-k
+- Shift-k
+- Super-k
+- more combinations between the modifier keys
+
+Notice that when a key is chosen to perform a hold functionality it
+becomes hard to repeat that key in both the tap and the hold
+functionality.  For example, in Emacs C-n is pressed multiples times
+while "a" is usually pressed once.
+
+Control
+
+|-----+-----+-----+-----+-----+-----+------+-------+-----+-----------+-----------+-----+-----+----|
+| `~  |  9( | 8*  | 7&  | 6^  | 5%  |      |       | 0)  | 1!        | 2@        | 3#  | 4$  | =+ |
+| '"  |     | C-w | C-e | C-r | C-t |      |       | C-y | C-u       | C-i = TAB | C-o | C-p | -_ |
+| TAB | C-a | C-s | C-d | C-f | C-g |      |       | C-h | C-j       | C-k       | C-l | ;:  | BS |
+| S(  |     | C-x | C-c | C-v | C-b | Mute | PrtSc | C-n | C-m = RET | ,<        | .>  | /?  | S) |
+|-----+-----+-----+-----+-----+-----+------+-------+-----+-----------+-----------+-----+-----+----|
+|     |     | ESC | S   | L1  | SPC | RET  | SPC   | RET | L1        | AltGr     | \   |     |    |
+|-----+-----+-----+-----+-----+-----+------+-------+-----+-----------+-----------+-----+-----+----|
+
+I could remap all motion keybindings to up, down, left, right, home,
+end, pagedown and pageup.  Notice that could work with C-M-p/n f/b u/d
+a/e.
+
+That would require an additional layer with these keys.  It should be
+chosen so that the behaviour matches other programs such has browsers.
+
+** Mousekeys
+Implement const velocity and acceleration.
+Implement drag and drop.
+
+Read Xorg specification.
+
+Understand the difference between polled and interrupted (PS/2 and USB).
+The former is USB and the CPU constantly checks for pressed keys.
+Interrupts, on the other hand, interrupt the CPU when keys are pressed.
+See [[https://cs.calvin.edu/activities/books/rit/chapter2/design/hardware/io/index.htm][this]].
+
+Take a look at [[https://github.com/liyang/qmk_firmware/blob/develop/kinetic/quantum/mousekey.c][this]] alternative QMK implementation.
+
+How to debug?
