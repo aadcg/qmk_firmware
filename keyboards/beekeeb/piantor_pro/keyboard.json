@@ -1,11 +1,20 @@
 {
     "manufacturer": "beekeeb",
     "keyboard_name": "piantor_pro",
+    "url": "",
     "maintainer": "beekeeb",
+    "processor": "RP2040",
     "bootloader": "rp2040",
     "diode_direction": "COL2ROW",
+    "usb": {
+        "device_version": "1.0.0",
+        "pid": "0x0002",
+        "vid": "0xBEEB"
+    },
     "features": {
         "bootmagic": true,
+        "command": false,
+        "console": true,
         "extrakey": true,
         "mousekey": true,
         "nkro": true
@@ -13,12 +22,6 @@
     "matrix_pins": {
         "cols": ["GP11", "GP12", "GP13", "GP14", "GP15", "GP16"],
         "rows": ["GP7", "GP8", "GP9", "GP10"]
-    },
-    "processor": "RP2040",
-    "usb": {
-        "device_version": "1.0.0",
-        "pid": "0x0002",
-        "vid": "0xBEEB"
     },
     "split": {
         "enabled": true,
