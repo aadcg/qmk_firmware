@@ -1,1 +1,10 @@
-SERIAL_DRIVER = vendor
+SERIAL_DRIVER       = vendor
+REPEAT_KEY_ENABLE   = yes
+COMBO_ENABLE        = yes
+CAPS_WORD_ENABLE    = yes
+AUTO_SHIFT_ENABLE   = yes
+MAGIC_ENABLE        = yes
+OS_DETECTION_ENABLE = yes
+KEY_LOCK_ENABLE     = yes
+MUSIC_ENABLE        = no
+SPACE_CADET_ENABLE  = no
