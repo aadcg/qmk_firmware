@@ -18,6 +18,7 @@
 #define M_S     ALT_T(KC_S)     // Tap for S   ; Hold for Meta
 #define M_L     ALT_T(KC_L)     // Tap for L   ; Hold for Meta
 #define SFT_F   SFT_T(KC_F)     // Tap for F   ; Hold for Shift
+/* should I distinguish between left and right shift? */
 #define SFT_J   RSFT_T(KC_J)    // Tap for J   ; Hold for Shift
 #define S_A     GUI_T(KC_A)     // Tap for A   ; Hold for Super
 #define S_SCLN  GUI_T(KC_SCLN)  // Tap for ;   ; Hold for Super
