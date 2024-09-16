@@ -33,6 +33,7 @@
 #define KC__B   LT(0,KC_B)      // Tap for B   ; Hold for C-x b
 #define KC__P   LT(0,KC_P)      // Tap for P   ; Hold for C-x p
 #define KC__G   LT(0,KC_G)      // Tap for G   ; Hold for C-x g
+#define PARENS  LT(0,KC_LPRN)   // Tap for (   ; Hold for )
 
 enum custom_keycodes {
   CX_0 = SAFE_RANGE,
@@ -53,7 +54,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_GRV,  KC_Q,    KC__W,   KC_E,    KC_R,    KC_T,                      KC_Y,    KC_U,    KC__I,   KC__O,   KC__P,   KC_LBRC,
   KC_MINS, S_A,     M_S,     C_D,     SFT_F,   KC__G,                     L2_H,    SFT_J,   C_K,     M_L,     S_SCLN,  KC_QUOT,
   KC_EQL,  RA_Z,    KC__X,   KC__C,   KC__V,   KC__B,                     KC_N,    KC_M,    KC_COMM, KC_DOT,  RA_SLSH, KC_RBRC,
-                                      KC_LPRN, C_SPC,   L3_TAB,  L2_ENT,  L1_BSPC, KC_DEL
+                                      PARENS,  C_SPC,   L3_TAB,  L2_ENT,  L1_BSPC, KC_DEL
 ),
 
   [1] = LAYOUT_split_3x6_3(
@@ -147,6 +148,21 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     if (!record->tap.count && record->event.pressed) {
       (keymap_config.swap_lctl_lgui) ? tap_code16(LCMD(KC_X)) : tap_code16(C(KC_X));
       tap_code16(KC_G);
+      return false;
+    }
+    return true;
+  case LT(0,KC_LPRN):
+    if (record->tap.count > 0) {
+      if (record->event.pressed) {
+        register_code16(KC_LPRN);
+      } else {
+        unregister_code16(KC_LPRN);
+      }
+      return false;
+    }
+    /* Intercept hold function to send ). */
+    if (!record->tap.count && record->event.pressed) {
+      tap_code16(KC_RPRN);
       return false;
     }
     return true;
