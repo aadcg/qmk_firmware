@@ -251,7 +251,8 @@ enum combos {
   ESC,
   BC,
   PPL,
-  THINK
+  THINK,
+  THAT
 };
 
 /* TODO try to use combos with thumb keys to achieve symbols/numbers */
@@ -259,12 +260,14 @@ const uint16_t PROGMEM combo_esc[]   = {KC_Q, KC_W, COMBO_END};
 const uint16_t PROGMEM combo_bc[]    = {KC__B, KC__C, COMBO_END};
 const uint16_t PROGMEM combo_ppl[]   = {KC__P, S_SCLN, COMBO_END};
 const uint16_t PROGMEM combo_think[] = {KC__I, C_K, COMBO_END};
+const uint16_t PROGMEM combo_that[]  = {KC_T, L2_H, COMBO_END};
 
 combo_t key_combos[] = {
   [ESC]   = COMBO(combo_esc, KC_ESC),
   [BC]    = COMBO_ACTION(combo_bc),
   [PPL]   = COMBO_ACTION(combo_ppl),
   [THINK] = COMBO_ACTION(combo_think),
+  [THAT]  = COMBO_ACTION(combo_that)
 };
 
 void process_combo_event(uint16_t combo_index, bool pressed) {
@@ -282,6 +285,11 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
   case THINK:
     if (pressed) {
       SEND_STRING("think");
+    }
+    break;
+  case THAT:
+    if (pressed) {
+      SEND_STRING("that");
     }
     break;
   }
