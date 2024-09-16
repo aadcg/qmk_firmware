@@ -121,6 +121,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     /* Intercept hold function to send I. */
     if (!record->tap.count && record->event.pressed) {
       tap_code16(LSFT(KC_I));
+      tap_code16(KC_SPC);
       return false;
     }
     return true;
