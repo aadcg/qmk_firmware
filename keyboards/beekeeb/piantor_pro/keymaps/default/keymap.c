@@ -230,6 +230,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   return true;
 }
 
+/* vertical consecutive combos: */
+/* QA XS FV GB JM */
+
+/* horizontal consecutive combos: */
+/* QW ZX CV JK */
+
 #ifdef COMBO_ENABLE
 enum combos {
   ESC,
