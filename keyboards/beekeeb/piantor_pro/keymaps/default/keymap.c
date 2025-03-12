@@ -3,6 +3,9 @@
 
 #include QMK_KEYBOARD_H
 
+/* FIXME douple tap on backspace key (which doubles as a nav layer) enables
+   delete on hold... */
+
 /* Add C-M on hold for W and O keys? */
 /* Add alpha layer without tap/hold keys? (game layer) */
 /* Try AltGr as a one shot modifier */
