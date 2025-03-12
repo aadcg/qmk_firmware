@@ -48,6 +48,8 @@ enum custom_keycodes {
   REDO
 };
 
+/* I'd like to move to 5 columns + pinky */
+/* Russian isn't so easy to type on a 5 column layout. */
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_split_3x6_3(
   KC_GRV,  KC_Q,    KC__W,   KC_E,    KC_R,    KC_T,                      KC_Y,    KC_U,    KC__I,   KC__O,   KC__P,   KC_LBRC,
