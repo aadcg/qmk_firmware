@@ -11,7 +11,7 @@
 /* Try AltGr as a one shot modifier */
 
 #define C_M     LALT(KC_LCTL)   // Tap for C-M
-#define L1_BSPC LT(1,KC_BSPC)   // Tap for ⌫   ; Hold for L1
+#define L1_BSPC LT(1,KC_BSPC)   // Tap for ⌫  ; Hold for L1
 #define L2_H    LT(2,KC_H)      // Tap for H   ; Hold for L2
 #define L2_ENT  LT(2,KC_ENT)    // Tap for ENT ; Hold for L2
 #define L3_TAB  LT(3,KC_TAB)    // Tap for TAB ; Hold for L3
