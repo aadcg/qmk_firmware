@@ -36,6 +36,9 @@
 #define KC__P   LT(0,KC_P)      // Tap for P   ; Hold for C-x p
 #define KC__G   LT(0,KC_G)      // Tap for G   ; Hold for C-x g
 
+#define SPELL   S(KC_F10)
+#define B_TAB   C(KC_TAB)
+
 enum custom_keycodes {
   CX_0 = SAFE_RANGE,
   CX_1,
@@ -61,8 +64,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 
   [1] = LAYOUT_split_3x6_3(
-  XXXXXXX, KC_PGUP, KC_HOME, KC_UP,   KC_END,  XXXXXXX,                   XXXXXXX, QK_AREP, QK_REP,  C_M,     KC_ALGR, XXXXXXX,
-  KC_ESC,  KC_PGDN, KC_LEFT, KC_DOWN, KC_RGHT, KC_BSLS,                   QK_LOCK, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI, DF(3),
+  XXXXXXX, KC_PGUP, KC_HOME, KC_UP,   KC_END,  XXXXXXX,                   SPELL,   QK_AREP, QK_REP,  C_M,     KC_ALGR, XXXXXXX,
+  KC_ESC,  KC_PGDN, KC_LEFT, KC_DOWN, KC_RGHT, KC_BSLS,                   QK_LOCK, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI, B_TAB,
   XXXXXXX, UNDO,    CUT,     COPY,    PASTE,   REDO,                      CX_4,    CX_0,    CX_1,    CX_2,    CX_3,    CX_P,
                                       KC_DEL,  _______, KC_BSPC, _______, _______, _______
 ),
