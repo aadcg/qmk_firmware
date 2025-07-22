@@ -234,6 +234,17 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   return true;
 }
 
+/* uint16_t get_quick_tap_term(uint16_t keycode, keyrecord_t *record) { */
+/*     switch (keycode) { */
+/*       /\* Tapping backspace and holding for nav layer happens too often so we */
+/*          disable the auto-repeat function *\/ */
+/*         case LT(1,KC_BSPC): */
+/*             return 0; */
+/*         default: */
+/*             return QUICK_TAP_TERM; */
+/*     } */
+/* } */
+
 #ifdef COMBO_ENABLE
 enum combos {
   BC,
