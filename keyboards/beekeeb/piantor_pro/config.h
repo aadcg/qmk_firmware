@@ -17,6 +17,8 @@
 #define DEBOUNCE 5
 #define BOTH_SHIFTS_TURNS_ON_CAPS_WORD
 #define NO_AUTO_SHIFT_ALPHA
+#define QUICK_TAP_TERM 85
+#define QUICK_TAP_TERM_PER_KEY
 
 /* Mouse settings */
 #define MOUSEKEY_DELAY 0
